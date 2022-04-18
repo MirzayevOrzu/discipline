@@ -1,5 +1,5 @@
 import { IsEmail, IsString, Length } from 'class-validator';
-import { IsFullName } from 'src/common/decorators/IsFullName';
+import { IsFullName } from '../../common/decorators/IsFullName';
 
 export class CreateUserDto {
   @IsFullName('fullName')
