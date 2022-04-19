@@ -6,7 +6,7 @@ export const conf = rc('app', {
   db: {
     host: 'localhost',
     port: 27017,
-    name: 'dicipline',
+    name: 'discipline',
   },
   jwt: {
     secret: 'secret',
