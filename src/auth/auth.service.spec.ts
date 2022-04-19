@@ -3,6 +3,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from '../users/users.module';
 import { AuthService } from './auth.service';
 import { MongooseModule } from '@nestjs/mongoose';
+import { conf } from '../common/configs';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -10,10 +11,10 @@ describe('AuthService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
-        MongooseModule.forRoot('mongodb://localhost:27017/discipline'),
+        MongooseModule.forRoot(`mongodb://${conf.db.host}:${conf.db.port}/${conf.db.name}`),
         UsersModule,
         JwtModule.register({
-          secret: 'secretKey',
+          secret: conf.jwt.secret,
         }),
       ],
       providers: [AuthService],

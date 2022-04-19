@@ -5,6 +5,7 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, userSchema } from '../users/schemas/user.schema';
+import { conf } from '../common/configs';
 
 describe('AuthController', () => {
   let controller: AuthController;
@@ -12,10 +13,10 @@ describe('AuthController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
-        MongooseModule.forRoot('mongodb://localhost:27017/discipline'),
+        MongooseModule.forRoot(`mongodb://${conf.db.host}:${conf.db.port}/${conf.db.name}`),
         MongooseModule.forFeature([{ name: User.name, schema: userSchema }]),
         JwtModule.register({
-          secret: 'secretKey',
+          secret: conf.jwt.secret,
         }),
       ],
       controllers: [AuthController],
