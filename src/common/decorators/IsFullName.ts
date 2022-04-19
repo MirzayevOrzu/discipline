@@ -1,7 +1,7 @@
 import { registerDecorator, ValidationOptions, ValidationArguments } from 'class-validator';
 
-export function IsFullName(property: string, validationOptions?: ValidationOptions) {
-  return function (object: Object, propertyName: string) {
+export const IsFullName = (property: string, validationOptions?: ValidationOptions) => {
+  return (object: Object, propertyName: string) => {
     registerDecorator({
       name: 'isFullName',
       target: object.constructor,
@@ -15,4 +15,4 @@ export function IsFullName(property: string, validationOptions?: ValidationOptio
       },
     });
   };
-}
+};
