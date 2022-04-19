@@ -32,7 +32,7 @@ export class AuthService {
     }
 
     return {
-      access_token: this.jwtService.sign({ sub: valid.id, email: valid.email }),
+      access_token: this.jwtService.sign({ sub: valid._id.toString() }),
     };
   }
 }
