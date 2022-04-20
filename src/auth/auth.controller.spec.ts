@@ -13,7 +13,7 @@ describe('AuthController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
-        MongooseModule.forRoot(`mongodb://${conf.db.host}:${conf.db.port}/${conf.db.name}`),
+        MongooseModule.forRoot(`mongodb://${conf.db.host}:${conf.db.port}/${conf.db.mainName}`),
         MongooseModule.forFeature([{ name: User.name, schema: userSchema }]),
         JwtModule.register({
           secret: conf.jwt.secret,
