@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
+import { ParseObjectIdPipe } from 'src/common/pipes/object-id.pipe';
 import { UserPayloadDto } from '../auth/dto/user-payload.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 import { CurrentUser } from '../common/decorators/CurrentUser';
@@ -18,7 +19,7 @@ export class ObjectivesController {
 
   @UseGuards(JwtAuthGuard)
   @Get(':id')
-  findOne(@Param('id') id: string, @CurrentUser() user: UserPayloadDto) {
+  findOne(@Param('id', ParseObjectIdPipe) id: string, @CurrentUser() user: UserPayloadDto) {
     return this.objectivesService.findOne({ _id: id, owner: user.userId });
   }
 
