@@ -8,5 +8,6 @@ import { ObjectivesService } from './objectives.service';
   imports: [MongooseModule.forFeature([{ name: Objective.name, schema: objectiveSchema }])],
   controllers: [ObjectivesController],
   providers: [ObjectivesService],
+  exports: [ObjectivesService],
 })
 export class ObjectivesModule {}

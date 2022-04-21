@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ObjectivesModule } from './objectives/objectives.module';
+import { MilestonesModule } from './milestones/milestones.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ObjectivesModule } from './objectives/objectives.module';
     AuthModule,
     UsersModule,
     ObjectivesModule,
+    MilestonesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
