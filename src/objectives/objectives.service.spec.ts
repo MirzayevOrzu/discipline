@@ -1,11 +1,18 @@
+import { MongooseModule } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
+import { conf } from '../common/configs';
 import { ObjectivesService } from './objectives.service';
+import { Objective, objectiveSchema } from './schemas/objective.schema';
 
 describe('ObjectivesService', () => {
   let service: ObjectivesService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [
+        MongooseModule.forRoot(`mongodb://${conf.db.host}:${conf.db.port}/${conf.db.testName}`),
+        MongooseModule.forFeature([{ name: Objective.name, schema: objectiveSchema }]),
+      ],
       providers: [ObjectivesService],
     }).compile();
 

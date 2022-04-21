@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
-import { ParseObjectIdPipe } from 'src/common/pipes/object-id.pipe';
+import { ParseObjectIdPipe } from '../common/pipes/object-id.pipe';
 import { UserPayloadDto } from '../auth/dto/user-payload.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 import { CurrentUser } from '../common/decorators/CurrentUser';
