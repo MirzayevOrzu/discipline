@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import { Document, SchemaTypes } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Schemas } from '../../common/constants/schemas.contant';
 
@@ -9,12 +9,14 @@ export type MilestoneDocument = Milestone & Document;
 })
 export class Milestone {
   @Prop({
+    type: SchemaTypes.ObjectId,
     ref: Schemas.OBJECTIVE,
     required: true,
   })
   objectiveId: string;
 
   @Prop({
+    type: SchemaTypes.ObjectId,
     ref: Schemas.USER,
     required: true,
   })
@@ -26,7 +28,7 @@ export class Milestone {
   name: string;
 
   @Prop({
-    type: [String],
+    type: [SchemaTypes.ObjectId],
     ref: Schemas.ACTIVITY,
   })
   activities: string[];
