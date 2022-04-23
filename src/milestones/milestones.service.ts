@@ -38,4 +38,8 @@ export class MilestonesService {
   async findAll(query: FindMilestoneDto) {
     return this.milestoneModel.find(query).lean();
   }
+
+  update(id: string, updateMilestoneDto: UpdateMilestoneDto) {
+    return this.milestoneModel.findByIdAndUpdate(id, updateMilestoneDto, { new: true });
+  }
 }
