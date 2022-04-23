@@ -3,7 +3,7 @@ import { IsMongoId, IsString } from 'class-validator';
 import { CreateUserDto } from './create-user.dto';
 
 export class FindUserDto extends PartialType(
-  OmitType(CreateUserDto, ['fullName', 'password'] as const)
+  OmitType(CreateUserDto, ['firstName', 'lastName', 'password'] as const)
 ) {
   @IsString()
   @IsMongoId()

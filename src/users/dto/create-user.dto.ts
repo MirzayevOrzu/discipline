@@ -1,9 +1,12 @@
-import { IsEmail, IsString, Length } from 'class-validator';
-import { IsFullName } from '../../common/decorators/IsFullName';
-
+import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
 export class CreateUserDto {
-  @IsFullName('fullName')
-  fullName: string;
+  @IsString()
+  @IsNotEmpty()
+  firstName: string;
+
+  @IsString()
+  @IsNotEmpty()
+  lastName: string;
 
   @IsString()
   @IsEmail()
