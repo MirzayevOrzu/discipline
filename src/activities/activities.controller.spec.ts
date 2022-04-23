@@ -17,4 +17,12 @@ describe('ActivitiesController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  it('should have create method', () => {
+    expect(controller.create).toBeDefined();
+  });
+
+  it('should have update method', () => {
+    expect(controller.update).toBeDefined();
+  });
 });

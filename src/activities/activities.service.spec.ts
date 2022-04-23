@@ -19,4 +19,12 @@ describe('ActivitiesService', () => {
   it('should have createMany method', async () => {
     expect(service.createMany).toBeDefined();
   });
+
+  it('should have create method', async () => {
+    expect(service.create).toBeDefined();
+  });
+
+  it('should have update method', async () => {
+    expect(service.update).toBeDefined();
+  });
 });
